@@ -36,19 +36,7 @@ const Scan = () => {
 
     const onReading = ({message, serialNumber}) => {
         setSerialNumber(serialNumber);
-        for (const record of message.records) {
-            switch (record.recordType) {
-                case "text":
-                    const textDecoder = new TextDecoder(record.encoding);
-                    setMessage(textDecoder.decode(record.data));
-                    break;
-                case "url":
-                    // TODO: Read URL record with record data.
-                    break;
-                default:
-                    // TODO: Handle other records with record data.
-                }
-        }
+        // add axios call to check serial number
     };
 
     useEffect(() => {
